@@ -5,7 +5,6 @@
 #ifndef __LISTA_D__
 #define __LISTA_D__
 
-typedef struct T_NodoD* T_ListaD;
 
 /*
  *  Definir una biblioteca para gestión de una lista dinámica de enteros con las operaciones habituales:
@@ -14,7 +13,10 @@ typedef struct T_NodoD* T_ListaD;
  *
  */
 
-struct T_NodoD{
+
+typedef struct T_NodeD* T_ListaD;
+
+struct T_NodeD{
     unsigned num;
     T_ListaD sig;
 };
