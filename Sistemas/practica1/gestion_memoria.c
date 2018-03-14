@@ -2,9 +2,10 @@
 // Created by Alejandro Garau Madrigal on 14/03/2018.
 //
 #include <stdlib.h>
+#include <stdio.h>
 #include "./gestion_memoria.h"
 
-#define MEMORYSIZE 1000;
+#define MEMORYSIZE 1000
 
 void crear(T_Manejador* manejador){
     *manejador = (T_Manejador) malloc(sizeof(struct T_Nodo));
@@ -35,11 +36,6 @@ void obtener(T_Manejador *manejador, unsigned tam, unsigned* dir, unsigned* ok){
             aux->inicio += tam;
         }
     }
-}
-
-void destruir(T_Manejador* manejador){
-    T_Manejador head = *manejador;
-
 }
 
 void devolver(T_Manejador *manejador, unsigned tam, unsigned dir){
@@ -73,6 +69,26 @@ void devolver(T_Manejador *manejador, unsigned tam, unsigned dir){
         }
     }
 }
+
+void destruir(T_Manejador* manejador){
+    T_Manejador head = *manejador;
+    T_Manejador sig;
+    while(head != NULL){
+        sig = head->sig;
+        free(head);
+        head = sig;
+    }
+    *manejador = NULL;
+}
+
+void mostrar(T_Manejador manejador){
+    while(manejador != NULL){
+        printf("Inicio: %d, Fin: %d; ", manejador->inicio, manejador->fin);
+        manejador = manejador->sig;
+    }
+    printf("\n");
+}
+
 
 // EXTENSION DE LA PRACTICA.
 /*
