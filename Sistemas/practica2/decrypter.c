@@ -3,7 +3,6 @@
 //
 #include <stdlib.h>
 #include <stdio.h>
-#include <math.h>
 
 const unsigned int key[4] = { 128, 129, 130, 131};
 const unsigned int delta = 0x9e3779b9;
